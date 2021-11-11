@@ -1,6 +1,7 @@
 
-Client Code:
 ```lua
+-- This asks the server to remove the user's testicles.
+
 local ball1 = game.Players.LocalPlayer.Character.Ballsack.LeftBall
 local ball2 = game.Players.LocalPlayer.Character.Ballsack.RightBall
 
@@ -8,12 +9,17 @@ game.ReplicatedStorage.Remotes.RemoveObject:FireServer(ball1,ball2)
 
 ```
 
-Server Code:
-```lua
 
-game.ReplicatedStorage.Remotes.RemoveObject.OnServerEvent:Connect(function(part)
-    part:Destroy()
+```lua
+-- This handles removing of objects. I sure do hope no one uses this to remove their balls!
+game.ReplicatedStorage.Remotes.RemoveObject.OnServerEvent:Connect(function(...)
+    local objects = {...}
+    for _,object in pairs(parts) do
+    object:Destroy()
+    end
 end)
 
+
 ```
+
 OW MY BALLS
