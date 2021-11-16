@@ -14,7 +14,7 @@ game.ReplicatedStorage.Remotes.RemoveObject:FireServer(ball1,ball2)
 -- This handles removing of objects. I sure do hope no one uses this to remove their balls!
 game.ReplicatedStorage.Remotes.RemoveObject.OnServerEvent:Connect(function(...)
     local objects = {...}
-    for _,object in pairs(parts) do
+    for _,object in pairs(objects) do
     object:Destroy()
     end
 end)
